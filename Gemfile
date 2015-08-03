@@ -53,6 +53,7 @@ group :test do
   # Use rspec as the test directory
   gem 'rspec'
   gem 'webrat', '0.7.1'
+  gem 'spork-rails'
 end
 
 group :production do
