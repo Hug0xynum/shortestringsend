@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :users
+
   root :to => 'pages#home'
   get '/contact', :to => 'pages#contact'
   get '/about',   :to => 'pages#about'

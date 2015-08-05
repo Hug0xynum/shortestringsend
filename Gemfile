@@ -47,7 +47,7 @@ group :development, :test do
 
   # Use rspec to test
   gem 'rspec-rails'
-
+  gem 'annotate'
   gem 'capybara'
 
 end
