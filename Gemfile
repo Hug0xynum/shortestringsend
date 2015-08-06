@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'annotate'
   gem 'capybara'
-
+  gem 'gravatar_image_tag'
 end
 
 group :test do
@@ -57,6 +57,7 @@ group :test do
   gem 'rspec'
   gem 'webrat', '0.7.1'
   gem 'spork-rails'
+  gem 'factory_girl_rails'
 end
 
 group :production do
