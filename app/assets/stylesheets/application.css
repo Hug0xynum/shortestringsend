@@ -1,5 +1,9 @@
-/*======== GENERAL CSS STYLE =======*/
+@import url("pages.scss");
+@import url("users.scss");
 
+/*==================================*\
+          GENERAL CSS STYLE           
+\*==================================*/
 .container {
   width: 710px;
   margin: 0 auto;
@@ -31,8 +35,8 @@ section h1 {
 .round {
   border-radius: 10px;
 }
-/* Liens */
 
+/* ======= LINK ======= */
 a {
   color: #00BEC4;
   text-decoration: none;
@@ -46,8 +50,8 @@ a:hover {
 h1 {
   margin: 0
 }
-/* Navigation */
 
+/* ======= NAVIGATION ======= */
 nav {
   float: right;
 }
