@@ -15,9 +15,11 @@ class UsersController < ApplicationController
       flash[:success] = "Bienvenue sur SSS!"
       redirect_to @user
     else
-      flash[:error] = "Oups! Il y a un problème avec votre Inscription!"
+      flash[:error] = "Oups! Votre inscription n'a pas pu se réaliser!"
       @titre = "Inscription"
-      redirect_to signup_path, :flash => { :error => "<%= render 'shared/error_messages' %>" }
+      render 'new'
+      #redirect_to('/signup/error')
+      #redirect_to signup_path, :flash => { :error => "<%= render 'shared/error_messages' %>" }
     end
   end
 
