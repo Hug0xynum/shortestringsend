@@ -8,7 +8,14 @@
       <ul>
         <li><%= link_to "Accueil", root_path %></li>
         <% if signed_in? %>
-      		<li><%= link_to "Profil", current_user %></li>
+      		<li><%= link_to "Profil","#"%>
+              <div class="subprofile">
+                <ul>
+                  <li><%= link_to "Afficher", current_user %></li>
+                  <li><%= link_to "Editer", edit_user_path(current_user) %></li>
+                </ul>
+              </div>
+          </li>
       	<% end %>
         <li><%= link_to "Aide", help_path %></li>
         <% if signed_in? %>
@@ -18,4 +25,5 @@
       	<% end %>
       </ul>
     </nav>
+    
 </header>

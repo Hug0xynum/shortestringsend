@@ -112,6 +112,7 @@ def integration_sign_in(user)
   fill_in "Mot de passe", :with => user.password
   click_button "S'identifier"
 end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin

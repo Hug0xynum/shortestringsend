@@ -71,7 +71,7 @@ nav ul {
   padding: 0;
 }
 
-nav ul li {
+nav>ul>li {
   list-style-type: none;
   display: inline-block;
   padding: 0.2em 0;
@@ -83,16 +83,25 @@ nav ul li a {
   color: #09c;
 }
 
-nav ul li a:active {
-  color: red;
+nav ul li ul{
+  display:none;
+  list-style-type: none;
 }
 
-nav ul li a:visited {
-  color: #09c;
+.subprofile {
+  z-index: 2;
+  position: fixed;
+  background-color: white;
+  margin-left: -10px;
 }
 
-nav ul li a:hover {
-  color: #17865D;
+.subprofile li {
+  padding: 5px;
+}
+
+nav ul li:hover ul {
+  display:block;
+  float:none;
 }
 
 footer {
