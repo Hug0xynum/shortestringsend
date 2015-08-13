@@ -47,6 +47,10 @@ a:hover {
   text-decoration: none;
 }
 
+a:active {
+  color: #00BEC4;
+}
+
 h1 {
   margin: 0
 }
@@ -79,13 +83,16 @@ nav ul li a {
   color: #09c;
 }
 
+nav ul li a:active {
+  color: red;
+}
+
 nav ul li a:visited {
   color: #09c;
 }
 
 nav ul li a:hover {
   color: #17865D;
-
 }
 
 footer {

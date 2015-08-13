@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'capybara'
+#require 'capybara'
 
 RSpec.describe UsersController,"-", type: :controller do
 
@@ -55,7 +55,7 @@ RSpec.describe UsersController,"-", type: :controller do
    #-----------------------------------------------------------------
     before(:each) do
       @attr = { :nom => "New User",
-                :email => "tototototo@example.com",
+                :email => "toto@example.com",
                 :password => "foobar",
                 :password_confirmation => "foobar" }
     end
@@ -64,6 +64,11 @@ RSpec.describe UsersController,"-", type: :controller do
       creation = lambda{post :create, :user => @attr}
       expect(creation).to change(User, :count).by(1)
     end
+
+    it "should sign in user" do
+        post :create, :user => @attr
+        expect(controller).to be_signed_in
+      end
       
     it "should return 'user' page" do
       post :create, :user => @attr
@@ -72,7 +77,7 @@ RSpec.describe UsersController,"-", type: :controller do
 
     it "should a welcoming message" do
       post :create, :user => @attr
-      expect(flash[:success]) =~ /Bienvenue dans l'Application Exemple/i
+      expect(flash.now[:success]).to match /Bienvenue sur SSS!/i
     end
   end
 end
