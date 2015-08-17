@@ -32553,3 +32553,13 @@ DEBUG  test :
 DEBUG  test : 
 DEBUG  test : 
  INFO  test : Started GET "/assets/users.scss" for ::1 at 2015-08-17 15:34:30 +0200
+DEBUG  test :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEBUG  test :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+DEBUG  test :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
