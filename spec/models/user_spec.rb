@@ -130,5 +130,25 @@ RSpec.describe User,"Model -", type: :model do
         expect(matching_user).to eq @user
       end
     end
+
+    describe "[Attribut admin]" do
+     #================================================================
+      before(:each) do
+        @user = User.create!(@attr)
+      end
+
+      it "should confirm admin existence" do
+        expect(@user).to respond_to(:admin)
+      end
+
+      it "shouldn't be admin by default" do
+        expect(@user).not_to be_admin
+      end
+
+      it "should become admin" do
+        @user.toggle!(:admin)
+        expect(@user).to be_admin
+      end
+    end
   end
 end

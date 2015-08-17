@@ -107,3 +107,44 @@ input{
   color: #F38200;
   border-color: #F38200;
 }
+
+/*==================================*\
+           INDEX USERS PAGE           
+\*==================================*/
+
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
+
+.listing_users {
+  font-weight: bold;
+}
+
+input.remove_user {
+  display: inline-block;
+  text-align: center;
+  color: red;
+  border: 1px solid red;
+  font-size: 90%;
+  font-weight: normal;
+  background-color: white;
+  height: 35px;
+}
+
+input.remove_user:hover {
+  background: red;
+  color:white;
+}
+
+input.remove_user:active  {
+  background: #7C0000;
+  color:white;
+}
+
+td.user_link_profile {
+  width:220px;
+}

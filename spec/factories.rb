@@ -7,4 +7,10 @@ FactoryGirl.define do
   		user.password              "azerty123"
   		user.password_confirmation "azerty123"
   	end
+
+  	#Use to create a new email with the function next in our spec
+	sequence :email do |n|
+  		"person-#{n}@example.com"
+	end
 end
+

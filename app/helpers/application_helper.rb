@@ -1,7 +1,7 @@
 module ApplicationHelper
 	#Retourne un titre toujours pertinent
 	def titre
-		base_titre="Sample App"
+		base_titre="SSS"
 		if @titre.nil?
 			base_titre
 		else
