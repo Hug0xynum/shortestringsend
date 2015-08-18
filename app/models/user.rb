@@ -9,9 +9,12 @@
 #  updated_at :datetime         not null
 #
 require 'digest'
+
 class User < ActiveRecord::Base
 	attr_accessor :password
 	
+  has_many :microposts, :dependent => :destroy
+
 	validates(:nom,
 				:presence => true,
 				:length   => { :maximum => 50 }
@@ -48,6 +51,10 @@ class User < ActiveRecord::Base
     	(user && user.salt == cookie_salt) ? user : nil
   	end
 
+    def feed
+      # C'est un préliminaire. Cf. chapitre 12 pour l'implémentation complète.
+      microposts
+    end
 	private
 
    	def encrypt_password

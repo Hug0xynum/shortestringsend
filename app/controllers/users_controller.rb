@@ -25,8 +25,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @titre = @user.nom
 #>TODO<[TEST A ECRIRE/]
-    unless signed_in?
+    if !signed_in?
       flash.now[:notice] = "Merci de vous identifier pour voir l'intégralité du contenu"
+    else signed_in?
+      @microposts = @user.microposts.paginate(:page => params[:page], per_page: 12)
     end
 #[/TEST A ECRIRE]
   end
@@ -83,11 +85,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-    def authenticate
-      deny_access unless signed_in?
-    end
-
     def correct_user
       @user = User.find(params[:id])
       redirect_to user_path unless current_user?(@user)

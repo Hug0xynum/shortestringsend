@@ -150,5 +150,47 @@ RSpec.describe User,"Model -", type: :model do
         expect(@user).to be_admin
       end
     end
+
+    describe "[Microposts Linking]" do
+     #================================================================
+      before(:each) do
+        @user = User.create(@attr)
+        @mp1 = FactoryGirl.create(:micropost, :user => @user, :created_at => 1.day.ago)
+        @mp2 = FactoryGirl.create(:micropost, :user => @user, :created_at => 1.hour.ago)
+      end
+
+      it "should have a micropost attribute" do
+        expect(@user).to respond_to(:microposts)
+      end
+
+      it "should have all micropost in good order" do
+        expect(@user.microposts).to eq [@mp2, @mp1]
+      end
+
+      it "should destroy micropost linked" do
+        @user.destroy
+        [@mp1, @mp2].each do |micropost|
+          expect(Micropost.find_by_id(micropost.id)).to be_nil
+        end
+      end
+    
+      describe "[Feeding]:" do
+       #================================================================
+        it "should have a `feed` method" do
+          expect(@user).to respond_to(:feed)
+        end
+
+        it "should include user's microposts" do
+          expect(@user.feed.include?(@mp1)).to be true
+          expect(@user.feed.include?(@mp2)).to be true
+        end
+
+        it "shouldnt include other user's microposts" do
+          mp3 = FactoryGirl.create(:micropost,
+                        :user => FactoryGirl.create(:user, :email => FactoryGirl.generate(:email)))
+          expect(@user.feed.include?(mp3)).to be false
+        end
+      end
+    end
   end
 end
