@@ -1,7 +1,17 @@
 class MicropostsController < ApplicationController
 	before_filter :authenticate, :only => [:create, :destroy]
 	before_filter :authorized_user, :only => :destroy
-	def create
+	
+  def index
+    @user = User.find(params[:id])
+    if !signed_in?
+      flash.now[:notice] = "Merci de vous identifier pour voir l'intégralité du contenu"
+    else
+      @microposts = @user.microposts.all
+    end
+  end
+
+  def create
 		@micropost  = current_user.microposts.build(micropost_params)
     	if @micropost.save
       		flash[:success] = "Send publié!"

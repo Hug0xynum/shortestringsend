@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 #>TODO<[TEST A ECRIRE/]
     if !signed_in?
       flash.now[:notice] = "Merci de vous identifier pour voir l'intégralité du contenu"
-    else signed_in?
+    else
       @microposts = @user.microposts.paginate(:page => params[:page], per_page: 12)
     end
 #[/TEST A ECRIRE]

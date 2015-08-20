@@ -8,7 +8,7 @@
           <% unless @user.microposts.empty? %>
             <% if signed_in? %>
               <table class="microposts" summary="Micro-messages de l'utilisateur">
-                <%= render @microposts %>
+                  <%= render @microposts %>
               </table>
               <%= will_paginate @microposts %>
             <% end %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/about',   :to => 'pages#about'
   get '/help',    :to => 'pages#help'
   get '/signup',  :to => 'users#new'
-
+  get '/users/:id/microposts', :to => 'microposts#index'
   get '/signin',  :to => 'sessions#new'
   get '/signout', :to => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
