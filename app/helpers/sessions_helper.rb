@@ -39,6 +39,11 @@ module SessionsHelper
     clear_return_to
   end
 
+  def redirect_back
+    redirect_to(session[:return_to])
+    clear_return_to
+  end
+
   private
     def user_from_remember_token
       User.authenticate_with_salt(*remember_token)

@@ -9,8 +9,8 @@
     </td>
     <% if current_user.admin?%>
   	  <td>
-  			 <%= button_to "Supprimer", user ,:onclick => "return(confirm('Are you
-sure?'))", :method => :delete, :title => "Supprimer #{user.nom}", :class => "remove_user round"%>
+
+  			 <%= button_to "Supprimer", user ,:onclick => "confirm('Etes vous sure?')",  :method => :delete, :title => "Supprimer #{user.nom}", :class => "remove_user round"%>
         <!--link_to 'Supprimer', user, action: :delete, method: :delete, confirm: "Are you sure?" , :title => "Supprimer #{user.nom}", :class => "remove_user round" -->
       </td>
     <% end %>

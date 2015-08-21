@@ -23,7 +23,6 @@ header img {
 }
 
 section {
-  font-size: 120%;
   padding: 20px;
   background: #fff;
 }
@@ -119,6 +118,24 @@ footer {
 footer nav {
   float: none;
 }
+
+
+
+
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
+
+
+
+
+
+
+
 
 /*==================================*\
             FLASH MESSAGES          

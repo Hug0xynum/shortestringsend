@@ -9,7 +9,7 @@
 	<% if current_user?(user) %>
   <td>
     <%= button_to "Supprimer", micropost, :method => :delete,
-                                          :confirm => "Etes-vous certain ?",
+                                          :onclick => "confirm('Etes-vous certain ?'",
                                           :title => micropost.content %>
   </td>
   <% end %>
