@@ -151,7 +151,7 @@ RSpec.describe User,"Model -", type: :model do
       end
     end
 
-    describe "[Microposts Linking]" do
+    describe "[Microposts Linking]:" do
      #================================================================
       before(:each) do
         @user = User.create(@attr)
@@ -174,7 +174,7 @@ RSpec.describe User,"Model -", type: :model do
         end
       end
     
-      describe "[Feeding]:" do
+      describe "(Feeding)" do
        #================================================================
         it "should have a `feed` method" do
           expect(@user).to respond_to(:feed)
@@ -190,6 +190,84 @@ RSpec.describe User,"Model -", type: :model do
                         :user => FactoryGirl.create(:user, :email => FactoryGirl.generate(:email)))
           expect(@user.feed.include?(mp3)).to be false
         end
+      end
+
+      describe "(Feeding state)" do
+       #================================================================
+        it "should feed" do
+          expect(@user).to respond_to(:feed)
+        end
+
+        it "should include user's microposts" do
+          expect(@user.feed).to include(@mp1)
+          expect(@user.feed).to include(@mp2)
+        end
+
+        it "shouldnt include other user's microposts" do
+          mp3 = FactoryGirl.create(:micropost,
+                        :user => FactoryGirl.create(:user, :email => FactoryGirl.generate(:email)))
+          expect(@user.feed).not_to include(mp3)
+        end
+
+        it "should include following's microposts" do
+          followed = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
+          mp3 = FactoryGirl.create(:micropost, :user => followed)
+          @user.follow!(followed)
+          expect(@user.feed).to include(mp3)
+        end
+      end
+    end
+
+    describe "[Relationships]:" do
+     #================================================================
+      before(:each) do
+        @user = User.create!(@attr)
+        @followed = FactoryGirl.create(:user, :email => FactoryGirl.generate(:email))
+      end
+
+      it "should have a relationship method" do
+        expect(@user).to respond_to(:relationships)
+      end
+
+      it "should have a following method" do
+        expect(@user).to respond_to(:following)
+      end
+
+      it "should have a follow! method" do
+        expect(@user).to respond_to(:follow!)
+      end
+
+      it "should follow other user" do
+        @user.follow!(@followed)
+        expect(@user).to be_following(@followed)
+      end
+
+      it "should include user in following list" do
+        @user.follow!(@followed)
+        expect(@user.following).to include(@followed)
+      end
+
+      it "should have an unfollow! method" do
+        expect(@followed).to respond_to(:unfollow!)
+      end
+
+      it "should unfollow user" do
+        @user.follow!(@followed)
+        @user.unfollow!(@followed)
+        expect(@user).not_to be_following(@followed)
+      end
+
+      it "should have a reverse_relationship method" do
+        expect(@user).to respond_to(:reverse_relationships)
+      end
+
+      it "should have a followers method" do
+        expect(@user).to respond_to(:followers)
+      end
+
+      it "should include follower in followers list" do
+        @user.follow!(@followed)
+        expect(@followed.followers).to include(@user)
       end
     end
   end

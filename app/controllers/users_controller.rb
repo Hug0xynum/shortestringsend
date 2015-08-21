@@ -1,7 +1,7 @@
 require 'will_paginate/array' 
 
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
+  before_filter :authenticate, :except => [:show, :new, :create]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
   
@@ -84,6 +84,19 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nom, :email, :password,:password_confirmation)#, :salt,:encrypted_password
   end
 
+  def following
+    @titre = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page], per_page: 20)
+    render 'show_follow'
+  end
+
+  def followers
+    @titre = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page], per_page: 20)
+    render 'show_follow'
+  end
   private
     def correct_user
       @user = User.find(params[:id])

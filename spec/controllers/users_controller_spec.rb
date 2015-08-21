@@ -271,4 +271,25 @@ RSpec.describe UsersController,"-", type: :controller do
       end
     end
   end
+
+  describe "[Follow Pages]:" do
+   #================================================================
+
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+    
+    describe "(Unidentified user)" do
+     #-----------------------------------------------------------------
+      it "should protect following" do
+        get :following, :id => @user
+        expect(response).to redirect_to(signin_path)
+      end
+
+      it "should protect following" do
+        get :followers, :id => @user
+        expect(response).to redirect_to(signin_path)
+      end
+    end
+  end
 end

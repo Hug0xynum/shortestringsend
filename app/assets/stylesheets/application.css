@@ -119,3 +119,33 @@ footer {
 footer nav {
   float: none;
 }
+
+/*==================================*\
+            FLASH MESSAGES          
+\*==================================*/
+
+.flash{
+  border:1px solid black;
+  font-family: Arial;
+  text-align: center;
+  margin: 5px;
+  padding:10px;
+}
+
+.success{
+  background-color: #B2FED1;
+  color: green;
+  border-color: green;
+}
+
+.error{
+  background-color: #FEB2B2;
+  color: red;
+  border-color: red;
+}
+
+.notice{
+  background-color: #F4E879;
+  color: #F38200;
+  border-color: #F38200;
+}
