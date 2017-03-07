@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-
+gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,7 +21,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'gravatar_image_tag'
+gem 'will_paginate'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -47,12 +48,19 @@ group :development, :test do
 
   # Use rspec to test
   gem 'rspec-rails'
+  gem 'annotate'
+  gem 'faker'
+  gem 'capybara'
+  gem 'logging'
 end
 
 group :test do
   # Use rspec as the test directory
   gem 'rspec'
   gem 'webrat', '0.7.1'
+  gem 'spork-rails'
+  gem 'factory_girl_rails'
+  
 end
 
 group :production do

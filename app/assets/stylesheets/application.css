@@ -1,15 +1,168 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url("pages.scss");
+@import url("users.scss");
+
+/*==================================*\
+          GENERAL CSS STYLE           
+\*==================================*/
+.container {
+  width: 710px;
+  margin: 0 auto;
+}
+
+body {
+  background: #cff;
+  font-family: Tahoma;
+}
+
+header {
+  padding-top: 20px;
+}
+
+header img {
+  padding: 1em;
+}
+
+section {
+  padding: 20px;
+  background: #fff;
+}
+
+section h1 {
+  font-size: 200%;
+}
+
+.round {
+  border-radius: 10px;
+}
+
+/* ======= LINK ======= */
+a {
+  color: #00BEC4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: green;
+  text-decoration: none;
+}
+
+a:active {
+  color: #00BEC4;
+}
+
+h1 {
+  margin: 0
+}
+
+/* ======= NAVIGATION ======= */
+nav {
+  float: right;
+}
+
+nav {
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav>ul>li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+nav ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+  color: #09c;
+}
+
+nav ul li ul{
+  display:none;
+  list-style-type: none;
+}
+
+.subprofile {
+  z-index: 2;
+  position: fixed;
+  background-color: white;
+  margin-left: -10px;
+}
+
+.subprofile li {
+  padding: 5px;
+}
+
+.pagination {
+  text-align:right;
+}
+
+nav ul li:hover ul {
+  display:block;
+  float:none;
+}
+
+footer {
+  text-align: center;
+  margin-top: 10px;
+  width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer nav {
+  float: none;
+}
+
+
+
+
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
+
+
+
+
+
+
+
+
+/*==================================*\
+            FLASH MESSAGES          
+\*==================================*/
+
+.flash{
+  border:1px solid black;
+  font-family: Arial;
+  text-align: center;
+  margin: 5px;
+  padding:10px;
+}
+
+.success{
+  background-color: #B2FED1;
+  color: green;
+  border-color: green;
+}
+
+.error{
+  background-color: #FEB2B2;
+  color: red;
+  border-color: red;
+}
+
+.notice{
+  background-color: #F4E879;
+  color: #F38200;
+  border-color: #F38200;
+}

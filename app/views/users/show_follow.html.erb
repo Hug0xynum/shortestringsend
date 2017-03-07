@@ -1,0 +1,22 @@
+ <h1><%= @titre %></h1>
+<table summary="Information à propos des Follows">
+  <tr>
+    <td class="main">
+      <% unless @users.empty? %>
+        <%= render @users %>
+        <%= will_paginate @users %>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Nom</strong> <%= @user.nom %><br />
+      <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+      <strong>Messages</strong> <%= @user.microposts.count %>
+      <%= render 'shared/stats' %>
+      <% unless @users.empty? %>
+        <% @users.each do |user| %>
+          <%= link_to gravatar_for(user, :size => 30), user %>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+</table>

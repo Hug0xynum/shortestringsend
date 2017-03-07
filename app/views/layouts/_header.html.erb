@@ -1,0 +1,30 @@
+<header>
+	<% if signed_in? %>
+      <%= link_to logo, root_path %>
+    <% else %> 
+    <%= link_to logo, root_path %>
+    <% end %>
+    <nav class="round">
+      <ul>
+        <li><%= link_to "Accueil", root_path %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Utilisateurs", users_path %></li>
+      		<li><%= link_to "Profil","#"%>
+              <div class="subprofile">
+                <ul>
+                  <li><%= link_to "Afficher", current_user %></li>
+                  <li><%= link_to "Editer", edit_user_path(current_user) %></li>
+                </ul>
+              </div>
+          </li>
+      	<% end %>
+        <li><%= link_to "Aide", help_path %></li>
+        <% if signed_in? %>
+      		<li><%= link_to "Déconnexion", signout_path, :method => :delete %></li>
+      	<% else %>
+      		<li><%= link_to "S'identifier", signin_path %></li>
+      	<% end %>
+      </ul>
+    </nav>
+    
+</header>

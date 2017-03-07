@@ -1,0 +1,185 @@
+/*==================================*\
+              USER PAGE           
+\*==================================*/
+
+table.profile {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+td.main {
+  width: 70%;
+  padding: 1em;
+}
+
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
+.profile img.gravatar {
+  border: 1px solid #999;
+  margin-bottom: -15px;
+}
+
+/* ======= MICROPOSTS ======= */
+
+h1.micropost {
+  margin-bottom: 0.3em;
+}
+
+table.microposts {
+  margin-top: 1em;
+}
+
+table.microposts tr {
+  height: 70px;
+}
+
+table.microposts tr td.gravatar {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.microposts tr td.micropost {
+  border: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+  margin-top: 15px;
+  width: 40em;
+}
+
+table.microposts tr td.micropost span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
+
+div.user_info span.microposts {
+  font-size: 80%;
+}
+
+form.new_micropost {
+  margin-bottom: 2em;
+}
+
+form.new_micropost textarea {
+  height: 4em;
+  width: 20em;
+  font-size: 120%;
+  margin-bottom: 0;
+  font-family: Times;
+}
+
+/* ======= FOLLOWING / FOLLOWERS ======= */
+
+
+
+
+/*==================================*\
+             SIGNUP PAGE           
+\*==================================*/
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* ======= ERRORS MESSAGES ======= */
+.field_with_errors input{
+  background-color: #FEB2B2;
+  color: red;
+}
+
+input{
+  height: 25px;
+}
+
+.field_with_errors label {
+  color: red;
+}
+
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 10px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/*==================================*\
+           INDEX USERS PAGE           
+\*==================================*/
+
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
+
+.listing_users {
+  font-weight: bold;
+}
+
+input.remove_user {
+  display: inline-block;
+  text-align: center;
+  color: red;
+  border: 1px solid red;
+  font-size: 90%;
+  font-weight: normal;
+  background-color: white;
+  height: 35px;
+}
+
+input.remove_user:hover {
+  background: red;
+  color:white;
+}
+
+input.remove_user:active  {
+  background: #7C0000;
+  color:white;
+}
+
+td.user_link_profile {
+  width:220px;
+}
